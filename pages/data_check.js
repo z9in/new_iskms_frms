@@ -42,7 +42,7 @@ function scanQRCode() {
     requestAnimationFrame(scanQRCode); // 다시 스캔 시도
   }
 }
-
+scanQRCode()
 
 scan_btn_el.addEventListener('click', () => {
   const videoElement = document.getElementById('camera');
@@ -61,7 +61,7 @@ scan_btn_el.addEventListener('click', () => {
       .catch(function(error) {
         console.log("카메라에 접근할 수 없습니다: ", error);
       });
-      scanQRCode()
+      
   } else {
     alert('getUserMedia를 지원하지 않는 브라우저입니다.');
   }
