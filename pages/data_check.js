@@ -19,6 +19,10 @@
 // }
 
 const scan_btn_el = document.querySelector('#scan-btn');
+navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+  .then(function(stream) {
+    document.getElementById('scan-btn').srcObject = stream;
+  });
 
 function scanQRCode() {
   const video = document.querySelector('#scan-btn');
@@ -44,26 +48,26 @@ function scanQRCode() {
 }
 scanQRCode()
 
-scan_btn_el.addEventListener('click', () => {
-  const videoElement = document.getElementById('camera');
+// scan_btn_el.addEventListener('click', () => {
+//   const videoElement = document.getElementById('camera');
 
-  if (navigator.mediaDevices.getUserMedia) {
-    const constraints = {
-      video: {
-        facingMode: "environment" // 후면 카메라에 접근
-      }
-    };
+//   if (navigator.mediaDevices.getUserMedia) {
+//     const constraints = {
+//       video: {
+//         facingMode: "environment" // 후면 카메라에 접근
+//       }
+//     };
 
-    navigator.mediaDevices.getUserMedia(constraints)
-      .then(function(stream) {
-        videoElement.srcObject = stream;
-      })
-      .catch(function(error) {
-        console.log("카메라에 접근할 수 없습니다: ", error);
-      });
+//     navigator.mediaDevices.getUserMedia(constraints)
+//       .then(function(stream) {
+//         videoElement.srcObject = stream;
+//       })
+//       .catch(function(error) {
+//         console.log("카메라에 접근할 수 없습니다: ", error);
+//       });
       
-  } else {
-    alert('getUserMedia를 지원하지 않는 브라우저입니다.');
-  }
-});
+//   } else {
+//     alert('getUserMedia를 지원하지 않는 브라우저입니다.');
+//   }
+// });
 
