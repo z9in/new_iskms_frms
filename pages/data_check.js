@@ -21,7 +21,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const videoElement = document.getElementById('camera');
 
   if (navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true })
+    const constraints = {
+      video: {
+        facingMode: "environment" // 후면 카메라에 접근
+      }
+    };
+
+    navigator.mediaDevices.getUserMedia(constraints)
       .then(function(stream) {
         videoElement.srcObject = stream;
       })
