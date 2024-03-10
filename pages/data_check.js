@@ -17,7 +17,34 @@
 // if (scannedData === "특정 조건") {
 //   document.getElementById('hidden-content').style.display = 'block';
 // }
-document.addEventListener('DOMContentLoaded', (event) => {
+
+const scan_btn_el = document.querySelector('#scan-btn');
+
+function scanQRCode() {
+  const video = document.querySelector('#scan-btn');
+  const canvasElement = document.createElement('canvas');
+  const context = canvasElement.getContext('2d');
+
+  canvasElement.width = video.videoWidth;
+  canvasElement.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+  
+  const imageData = context.getImageData(0, 0, canvasElement.width, canvasElement.height);
+  const code = jsQR(imageData.data, imageData.width, imageData.height, {
+    inversionAttempts: "attemptBoth",
+  });
+
+  if (code) {
+    alert(`Found QR code: ${code.data}`);
+    // QR 코드 인식 성공 시, 여기에서 추가 작업을 수행합니다.
+  } else {
+    // QR 코드를 찾지 못했을 때의 처리
+    requestAnimationFrame(scanQRCode); // 다시 스캔 시도
+  }
+}
+
+
+scan_btn_el.addEventListener('click', () => {
   const videoElement = document.getElementById('camera');
 
   if (navigator.mediaDevices.getUserMedia) {
@@ -34,7 +61,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
       .catch(function(error) {
         console.log("카메라에 접근할 수 없습니다: ", error);
       });
+      scanQRCode()
   } else {
     alert('getUserMedia를 지원하지 않는 브라우저입니다.');
   }
 });
+
