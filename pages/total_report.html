@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./index.css"> -->
+    
+    <link rel="stylesheet" type="text/css" href="/pages/total_report.css" media="screen and (min-width:900px)">
+    <link rel="stylesheet" type="text/css" href="/pages/total_report_mobile.css" media="screen and (max-width:899px)">
+
+</head>
+<body>
+    <div class="wrap">
+       <header>
+            <h1 class="logo">
+                <a href="/dashboard"><img src="/pages/images/logo 1.png" alt="logo"></a>
+            </h1>
+            <nav>
+                <ul class="depth1">
+                    <li class="menu_box">
+                        <h1 class="menu1">
+                            <img src="/pages/images/mingcute_close-fill.svg" alt="menu">
+                        </h1>
+                    </li>
+                    <li>
+                        <a href="/report">시설관리 종합일지</a>
+                    </li>
+                    <li>
+                        <a href="/check">점검하기</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#">발전기 운전 일지</a>
+                    </li>
+                    <li>
+                        <a href="#">에너지 사용량</a>
+                    </li>
+                    <li>
+                        <a href="#">수  온</a>
+                    </li>
+                    <li>
+                        <a href="#">재고관리</a>
+                    </li> -->
+                    <li class="logout_li">
+                        <p class="logout">로그아웃</p>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user_box">
+                <h5>시립마포청소년센터</h5>
+                <h5 class="userName">user</h5> 
+            </div>
+            <h1 class="logout">
+                <img src="/pages/images/ic_round-logout.svg" alt="logout">
+            </h1>
+            <h1 class="menu">
+                <img src="/pages/images/material-symbols_menu.svg" alt="menu">
+            </h1>
+       </header>
+       <main>
+            <div class="title">
+                <div class="title_name">
+                    <h1>시설관리 종합일지</h1>
+                </div>
+                <div class="date">
+                    <p>
+                        <span class="year">2024년</span>
+                        <span class="monthy">2월</span>
+                        <span class="day">3일</span>
+                        <span class="hour">21</span>
+                        <span class="minit" >57</span>
+                    </p>
+                </div>
+                <!-- date -->
+                
+            </div>
+            <!-- title -->
+            <div class="content">                
+                <div class="content_inform">
+                    <div class="content_title">
+                        <h1>시립마포청소년센터 기계ㆍ전기 시설 종합일지</h1>
+                    </div>
+                    <div class="content_date">
+                        <h1>일시 : </h1>
+                        <div class="date">
+                            <p>
+                                <span class="year">2024년</span>
+                                <span class="monthy">2월</span>
+                                <span class="day">3일</span>
+                                <span class="hour">21</span>
+                                <span class="minit" >57</span>
+                            </p>
+                        </div>
+                        <!-- date -->
+                    </div>
+                    <!-- content_date -->
+                    <div class="sign">
+                        <ul class="sign_box">
+                            <li class="sign_title"><p>근무자</p></li>
+                            <li class="sign_zone"></li>
+                        </ul>
+                        <ul class="sign_box">
+                            <li class="sign_title"><p>소 장</p></li>
+                            <li class="sign_zone"></li>
+                        </ul>
+                        <ul class="sign_box">
+                            <li class="sign_title"><p>담 당</p></li>
+                            <li class="sign_zone"></li>
+                        </ul>
+                        <ul class="sign_box">
+                            <li class="sign_title right_border"><p>팀 장</p></li>
+                            <li class="sign_zone right_border"></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- content_inform -->
+                <div class="report_box">
+                    <div class="boilers">
+                        <h1>Ⅰ.보일러</h1>
+                        <ul class="box">
+                            <li class="right_border">
+                                <h1>도시가스 사용량(보일러)(㎥) 22:00</h1>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>구분</h5>
+                                    </li>
+                                    <li>
+                                        <h5>1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5>2호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>12월 지침</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="last_month_use_boiler1">1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="last_month_use_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>전 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="yesterday_use_boiler1">1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="yesterday_use_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>금 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="today_use_boiler1">1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="today_use_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>사용량</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="value_use_boiler1">1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="value_use_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1">
+                                    <li class="right_border_in">
+                                        <h5>월 누계</h5>
+                                    </li>
+                                    <li class="right_border_in">
+                                        <h5 id="value_month_use_boiler1">1호기</h5>
+                                    </li>
+                                    <li class="right_border_in">
+                                        <h5 id="value_month_use_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h1>가동시간(청소년센터 : Min)</h1>
+                                <ul class="inner1 inner2">
+                                    <li>
+                                        <h5>12월 지침</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="last_month_time_boiler1">1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="last_month_time_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner2">
+                                    <li>
+                                        <h5>전 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="yesterday_time_boiler1">1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="yesterday_time_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner2">
+                                    <li>
+                                        <h5>금 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="today_time_boiler1">1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="today_time_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner2">
+                                    <li>
+                                        <h5>사용량</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="value_time_boiler1">1호기</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="value_time_boiler2">2호기</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner2">
+                                    <li class="right_border_in">
+                                        <h5>월 누계</h5>
+                                    </li>
+                                    <li class="right_border_in">
+                                        <h5 id="value_month_time_boiler1">1호기</h5>
+                                    </li>
+                                    <li class="right_border_in">
+                                        <h5 id="value_month_time_boiler2">2호기</h5>
+                                    </li>
+                                </ul>                            
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <!-- boiler -->
+                    <div class="boilers">
+                        <h1>Ⅱ. 냉ㆍ온수기</h1>
+                        <ul class="box">
+                            <li class="right_border">
+                                <h1>가스직화식 냉ㆍ온수기(㎥) 22:00</h1>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>구분</h5>
+                                    </li>
+                                    <li>
+                                        <h5>1대</h5>
+                                    </li>
+                                    
+                                    
+                                </ul>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>12월 지침</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="last_month_use_aircon">1호기</h5>
+                                    </li>
+                                   
+                                </ul>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>전 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="yesterday_use_aircon">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>금 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="today_use_aircon">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1">
+                                    <li>
+                                        <h5>사용량</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="value_use_aircon">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1">
+                                    <li class="right_border_in">
+                                        <h5>월 누계</h5>
+                                    </li>
+                                    <li class="right_border_in">
+                                        <h5 id="value_month_use_aircon">1호기</h5>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h1>가동시간(h)</h1>
+                                <ul class="inner1 inner2">
+                                    <li>
+                                        <h5>12월 지침</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="last_month_time_aircon">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner2">
+                                    <li>
+                                        <h5>전 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="yesterday_time_aircon">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner2">
+                                    <li>
+                                        <h5>금 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="today_time_aircon">1호기</h5>
+                                    </li>
+                                   
+                                </ul>
+                                <ul class="inner1 inner2">
+                                    <li>
+                                        <h5>사용량</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="value_time_aircon">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner2">
+                                    <li class="right_border_in">
+                                        <h5>월 누계</h5>
+                                    </li>
+                                    <li class="right_border_in">
+                                        <h5 id="value_month_time_aircon">1호기</h5>
+                                    </li>
+                                   
+                                </ul>                            
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <!-- 냉온수기 -->
+                    <div class="boilers">
+                        <h1>Ⅲ. 수도</h1>
+                        <ul class="box">
+                            <li class="right_border">
+                                <h1>급수 유량계(일간ㆍ주간)(㎥) 09:00</h1>
+                                
+                                <ul class="inner1 inner3">
+                                    <li>
+                                        <h5>12월 지침</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="last_month_use_water">1호기</h5>
+                                    </li>
+                                   
+                                </ul>
+                                <ul class="inner1 inner3">
+                                    <li>
+                                        <h5>전 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="yesterday_use_water">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner3">
+                                    <li>
+                                        <h5>금 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="today_use_water">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner3">
+                                    <li>
+                                        <h5>사용량</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="value_use_water">1호기</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner3">
+                                    <li class="right_border_in">
+                                        <h5>월 누계</h5>
+                                    </li>
+                                    <li class="right_border_in">
+                                        <h5 id="value_month_use_water">1호기</h5>
+                                    </li>
+                                </ul>
+                            </li>                            
+                        </ul>
+                    </div>
+                    <!-- 수도 -->
+                    <div class="boilers">
+                        <h1>Ⅳ. 공기열 히트펌프</h1>
+                        <ul class="box pump">
+                            <li class="right_border wide1">                                
+                                <ul class="inner1 inner4">
+                                    <li>
+                                        <h5>구분</h5>
+                                    </li>
+                                    <li>
+                                        <h5>12월 지침</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="last_month_use_pump">값</h5>
+                                    </li>
+                                   
+                                </ul>
+                                <ul class="inner1 inner4 inner4_flex">
+                                    <li class="block1">
+                                        <h5>온수온도(℃)</h5>
+                                    </li>
+                                    <li class="block2">
+                                        <h5>입구</h5>
+                                    </li>
+                                    <li class="block2">
+                                        <h5>출구</h5>
+                                    </li>
+                                    <li class="block2">
+                                        <h5 id="temp_input_pump">입구값</h5>
+                                    </li>
+                                    <li class="block2">
+                                        <h5 id="temp_output_pump">출구값</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner4 inner4_flex">
+                                    <li class="block1">
+                                        <h5>압축기 냉매온도(1/2)(R-407C)</h5>
+                                    </li>
+                                    <li class="block2">
+                                        <h5>1-흠입 / 토출</h5>
+                                    </li>
+                                    <li class="block2">
+                                        <h5>2-흡입 / 토출</h5>
+                                    </li>
+                                    <li class="block4">
+                                        <h5 id="temp1_input_pump">값</h5>
+                                    </li>
+                                    <li class="block4">
+                                        <h5 id="temp1_output_pump">값</h5>
+                                    </li>
+                                    <li class="block4">
+                                        <h5 id="temp2_input_pump">값</h5>
+                                    </li>
+                                    <li class="block4">
+                                        <h5 id="temp2_output_pump">값</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner4 inner4_flex">
+                                    <li class="block1">
+                                        <h5>압축기 냉매압력(1/2)</h5>
+                                    </li>
+                                    <li class="block2">
+                                        <h5>1-고압 / 저압</h5>
+                                    </li>
+                                    <li class="block2">
+                                        <h5>2-고압 / 저압</h5>
+                                    </li>
+                                    <li class="block4">
+                                        <h5 id="press1_input_pump">값</h5>
+                                    </li>
+                                    <li class="block4">
+                                        <h5 id="press1_output_pump">값</h5>
+                                    </li>
+                                    <li class="block4">
+                                        <h5 id="press2_input_pump">값</h5>
+                                    </li>
+                                    <li class="block4">
+                                        <h5 id="press2_output_pump">값</h5>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="inner1 inner4 colom">
+                                    <li class="flex_li1">
+                                        <h5>소비전류(A)</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="amp_pump">값</h5>
+                                    </li>
+                                </ul>
+                               
+                            </li>    
+                            <li>
+                                <ul class="inner1 inner4">
+                                    <li>
+                                        <h5>구분</h5>
+                                    </li>
+                                    <li>
+                                        <h5>소비(Kw)</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner4">
+                                    <li>
+                                        <h5>전 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="yesterday_use_pump">값</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner4">
+                                    <li>
+                                        <h5>금 일</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="today_use_pump">값</h5>
+                                    </li>
+                                </ul>
+                                    <ul class="inner1 inner4">
+                                        <li>
+                                            <h5>회수량</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="value_use_pump">값</h5>
+                                        </li>
+                                    </ul>
+                                    <ul class="inner1 inner4">
+                                        <li>
+                                            <h5>월누계</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="value_month_use_pump">값</h5>
+                                        </li>
+                                    </ul>
+                                </ul>
+                            </li>                        
+                        </ul>
+                    </div>
+                    <!-- 공기열히트펌프 -->
+                    <div class="boilers">
+                        <h1>Ⅴ. 수영장 : 25m * 5레인(  11.1m )  수량 385.9톤, 다층여과기(175㎥/H)</h1>
+                        <ul class="box">
+                            
+                            <li>
+                                <ul class="inner1 inner4">
+                                    <li>
+                                        <h5>구분</h5>
+                                    </li>
+                                    <li>
+                                        <h5>정류기 현황(09:00)</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner4">
+                                    <li>
+                                        <h5>VOLTAGE</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="voltage_pool">값</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner4">
+                                    <li>
+                                        <h5>AMPERE</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="ampere_pool">값</h5>
+                                    </li>
+                                </ul>
+                                    <ul class="inner1 inner4">
+                                        <li>
+                                            <h5>TEMPERATURE</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temper_pool">값</h5>
+                                        </li>
+                                    </ul>
+                                    <ul class="inner1 inner4">
+                                        <li>
+                                            <h5>비  고</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_pool"></h5>
+                                        </li>
+                                    </ul>
+                                </ul>
+                            </li>                        
+                        </ul>
+                    </div>
+                    <!-- 수영장 -->
+                    <div class="boilers">
+                        <h1>Ⅵ 수질점검결과</h1>
+                        <ul class="box">
+                            <li>
+                                <ul class="inner1 inner5">
+                                    <li>
+                                        <h5>시간</h5>
+                                    </li>
+                                    <li>
+                                        <h5>05:00</h5>
+                                    </li>
+                                    <li>
+                                        <h5>09:00</h5>
+                                    </li>
+                                    <li>
+                                        <h5>13:00</h5>
+                                    </li>
+                                    <li>
+                                        <h5>17:00</h5>
+                                    </li>
+                                    <li>
+                                        <h5>21:00</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner5">
+                                    <li>
+                                        <h5>잔류염소(0.4~1.0)</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="cl_05">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="cl_09">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="cl_13">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="cl_17">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="cl_21">값</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner5">
+                                    <li>
+                                        <h5>PH(6.8~8.6)</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="ph_05">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="ph_09">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="ph_13">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="ph_17">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="ph_21">값</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner5">
+                                        <li>
+                                            <h5>탁도</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="blur_05">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="blur_09">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="blur_13">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="blur_17">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="blur_21">값</h5>
+                                        </li>
+                                </ul>
+                                <ul class="inner1 inner5">
+                                        <li>
+                                            <h5>성일풀수온(28.5~29.5℃)</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_adult_05">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_adult_09">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_adult_13">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_adult_17">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_adult_21">값</h5>
+                                        </li>
+                                </ul>
+                                <ul class="inner1 inner5">
+                                        <li>
+                                            <h5>유아풀 수온(29.5~30.5℃)</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_baby_05">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_baby_09">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_baby_13">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_baby_17">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_baby_21">값</h5>
+                                        </li>
+                                </ul>
+                                <ul class="inner1 inner5">
+                                        <li>
+                                            <h5>실내온도(27.5~30.5℃)</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_out_05">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_out_09">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_out_13">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_out_17">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="temp_out_21">값</h5>
+                                        </li>
+                                </ul>
+                                <ul class="inner1 inner5">
+                                        <li>
+                                            <h5>기타</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_water_05">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_water_09">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_water_13">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_water_17">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_water_21">값</h5>
+                                        </li>
+                                </ul>
+                            </li>                        
+                        </ul>
+                    </div>
+                    <!-- 수질점검결과 -->
+                    <div class="boilers">
+                        <h1></h1>
+                        <ul class="box">
+                            <li>
+                                <ul class="inner1 inner6">
+                                    <li>
+                                        <h5>약품명(단위)</h5>
+                                    </li>
+                                    <li>
+                                        <h5>소금(포)</h5>
+                                    </li>
+                                    <li>
+                                        <h5>응집제(개)</h5>
+                                    </li>
+                                    <li>
+                                        <h5>PH조절제(통)</h5>
+                                    </li>
+                                    <li>
+                                        <h5>아비타(말)</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner6">
+                                    <li>
+                                        <h5>입고량</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="input_salt">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="input_ueng">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="input_ph">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="input_avata">값</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner6">
+                                    <li>
+                                        <h5>사용량</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="output_salt">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="output_ueng">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="output_ph">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="output_avata">값</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner6">
+                                        <li>
+                                            <h5>재고량</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="inven_salt">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="inven_ueng">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="inven_ph">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="inven_avata">값</h5>
+                                        </li>
+                                </ul>
+                                <ul class="inner1 inner6">
+                                        <li>
+                                            <h5>금월사용누계</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="stock_salt">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="stock_ueng">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="stock_ph">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="stock_avata">값</h5>
+                                        </li>
+                                </ul>
+                                <ul class="inner1 inner6">
+                                        <li>
+                                            <h5>비 고</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_salt">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_ueng">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_ph">값</h5>
+                                        </li>
+                                        <li>
+                                            <h5 id="etc_avata">값</h5>
+                                        </li>
+                                </ul>                              
+                            </li>                        
+                        </ul>
+                    </div>
+                    <!-- 재고현황 -->
+                    <div class="boilers">
+                        <h1>Ⅶ. 전기</h1>
+                        <h3>○ 변압기(500Kw)</h3>
+                        <ul class="box block2_ul">
+                            <li class="block2_li">
+                                <ul class="inner1 inner7">
+                                    <li>
+                                        <h5>시간</h5>
+                                    </li>                                    
+                                    <li>
+                                        <h5>09:00</h5>
+                                    </li>
+                                    <li>
+                                        <h5>17:00</h5>
+                                    </li>
+                                    <li>
+                                        <h5>21:00</h5>
+                                    </li>
+                                </ul>
+                                <ul class="inner1 inner7">
+                                    <li>
+                                        <h5>온도(℃)</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="trans_09">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="trans_17">값</h5>
+                                    </li>
+                                    <li>
+                                        <h5 id="trans_21">값</h5>
+                                    </li>                                   
+                                </ul>
+                                
+                            </li>                        
+                        </ul>
+                    </div>
+                    <!-- 전기-변압기 -->
+                    <div class="boilers">
+                    <h3>○ 센터 ( X200배)   22.04.19  3종 교체</h3>
+                    <ul class="box">
+                        <li class="block2_li">
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>12월 지침</h5>
+                                </li>                                    
+                                <li>
+                                    <h5 id="last_month_use_middle200">2822.76</h5>
+                                </li>
+                                <li>
+                                    <h5 id="last_month_use_max200">1752.6</h5>
+                                </li>
+                                <li>
+                                    <h5 id="last_month_use_low200">1891.78</h5>
+                                </li>
+                                <li class="block3_li">
+                                    <h5>합계</h5>
+                                </li>
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>구분</h5>
+                                </li>
+                                <li>
+                                    <h5>중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5>최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5>경부하⑮</h5>
+                                </li>                                   
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>전일</h5>
+                                </li>
+                                <li>
+                                    <h5 id="yesterday_use_middle200">중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5 id="yesterday_use_max200">최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5 id="yesterday_use_low200">경부하⑮</h5>
+                                </li>                                   
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>금일</h5>
+                                </li>
+                                <li>
+                                    <h5 id="today_use_middle200">중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5 id="today_use_max200">최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5 id="today_use_low200">경부하⑮</h5>
+                                </li>                                   
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>사용량</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_use_middle200">중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_use_max200">최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_use_low200">경부하⑮</h5>
+                                </li>  
+                                <li>
+                                    <h5 id="value_use_sum200">경부하⑮</h5>
+                                </li>                                 
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>월 누계</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_month_use_middle200">중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_month_use_max200">최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_month_use_low200">경부하⑮</h5>
+                                </li>  
+                                <li>
+                                    <h5 id="value_month_use_sum200">경부하⑮</h5>
+                                </li>                                 
+                            </ul>
+                        </li>                        
+                    </ul>
+                </div>
+                <!-- 전기 - 센터 -->
+                <div class="boilers">
+                    <h3>○ 센터 정화조(17.11.10 3종 교체)</h3>
+                    <ul class="box">
+                        <li class="block2_li">
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>12월 지침</h5>
+                                </li>                                    
+                                <li>
+                                    <h5 id="last_month_use_middle">2822.76</h5>
+                                </li>
+                                <li>
+                                    <h5 id="last_month_use_max">1752.6</h5>
+                                </li>
+                                <li>
+                                    <h5 id="last_month_use_low">1891.78</h5>
+                                </li>
+                                <li class="block3_li">
+                                    <h5>합계</h5>
+                                </li>
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>구분</h5>
+                                </li>
+                                <li>
+                                    <h5>중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5>최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5>경부하⑮</h5>
+                                </li>                                   
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>전일</h5>
+                                </li>
+                                <li>
+                                    <h5 id="yesterday_use_middle">중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5 id="yesterday_use_max">최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5 id="yesterday_use_low">경부하⑮</h5>
+                                </li>                                          
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>금일</h5>
+                                </li>
+                                <li>
+                                    <h5 id="today_use_middle">중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5 id="today_use_max">최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5 id="today_use_low">경부하⑮</h5>
+                                </li>                                    
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>사용량</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_use_middle">중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_use_max">최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_use_low">경부하⑮</h5>
+                                </li>  
+                                <li>
+                                    <h5 id="value_use_sum">경부하⑮</h5>
+                                </li>                                        
+                            </ul>
+                            <ul class="inner1 inner8">
+                                <li>
+                                    <h5>월 누계</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_month_use_middle">중간⑬</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_month_use_max">최대⑭</h5>
+                                </li>
+                                <li>
+                                    <h5 id="value_month_use_low">경부하⑮</h5>
+                                </li>  
+                                <li>
+                                    <h5 id="value_month_use_sum">경부하⑮</h5>
+                                </li>                              
+                            </ul>
+                        </li>                        
+                    </ul>
+                </div>
+                <!-- 전기 - 센터 정화조 -->
+                </div>
+            </div>
+            <!-- content -->
+       </main>
+    </div>
+</body>
+<script src="/pages/data_report.js"></script>
+<script src="/pages/data.js"></script>
+<!-- <script src="/pages/data_dashboard.js"></script> -->
+</html>
