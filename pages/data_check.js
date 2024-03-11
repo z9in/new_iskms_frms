@@ -15,7 +15,7 @@ function drawLine(begin, end, color) {
 }
 
 // Use facingMode: environment to attemt to get the front camera on phones
-// check_btn.addEventListener('click', ()=>{
+check_btn.addEventListener('click', ()=>{
   navigator.mediaDevices.getUserMedia({ video: { 
     facingMode: "environment",
     // width: {ideal: 300},
@@ -26,7 +26,7 @@ function drawLine(begin, end, color) {
     video.play();
     requestAnimationFrame(tick);
   });
-// })
+})
 
 function tick() {
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
