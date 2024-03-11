@@ -3,6 +3,7 @@ var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 let check_btn = document.getElementById('check_btn');
 let result_el = document.getElementById('result');
+let boiler1 = document.querySelectorAll('.boiler1');
 
 function drawLine(begin, end, color) {
   canvas.beginPath();
@@ -44,7 +45,8 @@ function tick() {
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
       
-      return result_el.innerHTML = code.data;
+      boiler1[code.data].hidden = false;
+      
 
    } else {
       requestAnimationFrame(tick);
