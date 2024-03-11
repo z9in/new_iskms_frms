@@ -1,4 +1,4 @@
-    var video = document.getElementById('qr_scan');
+    var video = document.createElement('video');
     var canvasElement = document.getElementById("canvas");
     var canvas = canvasElement.getContext("2d");
     var loadingMessage = document.getElementById("loadingMessage");
