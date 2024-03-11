@@ -5,7 +5,7 @@
     var outputContainer = document.getElementById("output");
     var outputMessage = document.getElementById("outputMessage");
     var outputData = document.getElementById("outputData");
-    let check_btn = document.getElementById('check_btn');
+    // let check_btn = document.getElementById('check_btn');
 
     function drawLine(begin, end, color) {
       canvas.beginPath();
