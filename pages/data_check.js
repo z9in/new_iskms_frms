@@ -1,4 +1,4 @@
-    var video = document.createElement('video');
+    var video = document.getElementById('scan');
     var canvasElement = document.getElementById("canvas");
     var canvas = canvasElement.getContext("2d");
     var loadingMessage = document.getElementById("loadingMessage");
@@ -50,10 +50,7 @@
           // outputData.parentElement.hidden = false;
           outputMessage.innerText = code.data;
           video.srcObject.getTracks().stop();
-          video.srcObject = null;
-          canvas.clearRect(0, 0, canvas.width, canvas.height);
-          video.disply='none'
-          
+          video.srcObject = null;          
         } else {
           // outputMessage.hidden = false;
           // outputData.parentElement.hidden = true;
