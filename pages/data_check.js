@@ -46,9 +46,9 @@
           drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
           drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
           drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-          outputMessage.hidden = true;
-          outputData.parentElement.hidden = false;
-          outputData.innerText = code.data;
+          // outputMessage.hidden = true;
+          // outputData.parentElement.hidden = false;
+          // outputData.innerText = code.data;
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
