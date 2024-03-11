@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- <link rel="stylesheet" type="text/css" href="./index.css"> -->
+    <script src="./jsQR.js"></script>
     <link rel="stylesheet" type="text/css" href="/pages/dashboard.css" media="screen and (min-width:900px)">
     <link rel="stylesheet" type="text/css" href="/pages/check _mobile copy.css" media="screen and (max-width:899px)">
     <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
@@ -74,15 +75,13 @@
             </div>
             <!-- title -->
             <div class="content">
+                <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
+                <canvas id="canvas" hidden></canvas>
+                <div id="output" hidden>
+                    <div id="outputMessage">No QR code detected.</div>
+                    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+                 </div>
                 
-                <div class="camera_box">
-                    <button id="scan-btn">QR 코드 스캔</button>
-                    <video id="camera" width="200px" height="200px" autoplay></video>
-                </div>
-                
-                <div id="hidden-content" style="display: none;">
-                    QR 코드 스캔으로 나타날 내용입니다.
-                </div>
             </div>
             <!-- content -->
        </main>
