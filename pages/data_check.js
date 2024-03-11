@@ -41,18 +41,19 @@
         var code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
         });
-        if (code) {
-          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
-          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
-          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
-          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-          // outputMessage.hidden = true;
-          // outputData.parentElement.hidden = false;
-          // outputData.innerText = code.data;
-        } else {
-          outputMessage.hidden = false;
-          outputData.parentElement.hidden = true;
-        }
+        outputMessage.innerHTML=code
+        // if (code) {
+        //   drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+        //   drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+        //   drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+        //   drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+        //   // outputMessage.hidden = true;
+        //   // outputData.parentElement.hidden = false;
+        //   // outputData.innerText = code.data;
+        // } else {
+        //   outputMessage.hidden = false;
+        //   outputData.parentElement.hidden = true;
+        // }
       }
       requestAnimationFrame(tick);
     }
