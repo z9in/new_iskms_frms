@@ -48,7 +48,8 @@
           drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
           // outputMessage.hidden = true;
           // outputData.parentElement.hidden = false;
-          return outputData.innerText = code.data;
+          outputMessage.innerText = code.data;
+          video.display = 'none'
           
         } else {
           // outputMessage.hidden = false;
