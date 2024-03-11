@@ -19,7 +19,7 @@ check_btn.addEventListener('click', ()=>{
   navigator.mediaDevices.getUserMedia({ video: { 
     facingMode: "environment",
     width: {ideal: 300},
-    height: {ideal:400}
+    height: {ideal:300}
   } }).then(function(stream) {
     video.srcObject = stream;
     video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
