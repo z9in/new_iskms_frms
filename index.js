@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-sequelize.sync( {force: true} ).then(async () => {
+sequelize.sync().then(async () => {
   console.log('유저데이터연결완료');
 
   // 사용자 데이터 찾기 또는 생성
@@ -44,7 +44,7 @@ sequelize.sync( {force: true} ).then(async () => {
   console.error('데이터베이스 연결 또는 동기화 에러: ', error);
 });
 
-sequelize1.sync( {force: true} ).then(async () => {
+sequelize1.sync( ).then(async () => {
   console.log('유저데이터연결완료');
 
   // Boiler 데이터 찾기 또는 생성

@@ -33,6 +33,51 @@ setInterval(()=>{
 },1000);
 
 
+let user_name = document.querySelector('.userName');
+let cookieArr = document.cookie.split('=')
+user_name.innerHTML = cookieArr[1];
+
+let menu_el = document.querySelector('.menu');
+let menu1_el = document.querySelector('.menu1');
+let nav = document.querySelector('nav');
+menu_el.addEventListener('click', ()=>{
+    console.log('asdf')
+    nav.style.display = 'flex'
+})
+menu1_el.addEventListener('click', ()=>{
+    nav.style.display = 'none'
+})
+
+let logout_el = document.querySelectorAll('.logout');
+console.log(logout_el)
+logout_el[0].addEventListener('click', () => {
+    console.log('1번')
+    // 서버로 로그아웃 요청을 보내는 코드
+  fetch('/logout', {
+    method: 'POST',
+    // 필요한 경우 CSRF 토큰 등의 추가 정보를 포함
+  }).then(response => {
+    if (response.ok) {
+      // 로그아웃 성공 시, 예를 들어 로그인 페이지로 리다이렉트
+      window.location.href = '/';
+    }
+  })
+})
+logout_el[1].addEventListener('click', () => {
+    console.log('1번')
+    // 서버로 로그아웃 요청을 보내는 코드
+   fetch('/logout', {
+     method: 'POST',
+     // 필요한 경우 CSRF 토큰 등의 추가 정보를 포함
+   }).then(response => {
+     if (response.ok) {
+       // 로그아웃 성공 시, 예를 들어 로그인 페이지로 리다이렉트
+       window.location.href = '/';
+     }
+   })
+ })
+
+
 var video = document.createElement("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
