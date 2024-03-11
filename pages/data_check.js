@@ -3,7 +3,7 @@ var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 let check_btn = document.getElementById('check_btn');
 let result_el = document.getElementById('result');
-let boiler1 = document.querySelectorAll('.boiler1');
+let boiler1 = document.querySelectorAll('.check_form');
 
 function drawLine(begin, end, color) {
   canvas.beginPath();
@@ -45,7 +45,7 @@ function tick() {
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
       
-      boiler1[code.data-1].hidden = false;
+      boiler1[code.data].display = 'flex';
       
 
    } else {

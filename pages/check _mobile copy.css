@@ -164,3 +164,35 @@ main {
     display: hidden;
     margin-bottom: 5px;
 }
+.check_form {
+    width: 100%;
+    /* outline: 1px solid #000; */
+    display: none;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    /* flex-direction: column; */
+}
+.check_form > h1 {
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.check_form > label {
+    width: 100%;
+    /* outline: 1px solid #ccc; */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.check_form > label > p {
+    /* outline: 1px solid #000; */
+    width: 140px;
+}
+.check_form > label > input {
+    width: calc(100% - 140px);
+    padding-left: 10px;
+}
+.submit_btn {
+    width: 100%;
+    height: 30px
+}
