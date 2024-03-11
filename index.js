@@ -357,16 +357,16 @@ app.post('/data', async (req, res) => {
   let water_check5 = await Water_check5.findAll({
     order: [['updatedAt', 'DESC']]
   });
-  let water_check9 = await Water_check5.findAll({
+  let water_check9 = await Water_check9.findAll({
     order: [['updatedAt', 'DESC']]
   });
-  let water_check13 = await Water_check5.findAll({
+  let water_check13 = await Water_check13.findAll({
     order: [['updatedAt', 'DESC']]
   });
-  let water_check17 = await Water_check5.findAll({
+  let water_check17 = await Water_check17.findAll({
     order: [['updatedAt', 'DESC']]
   });
-  let water_check21 = await Water_check5.findAll({
+  let water_check21 = await Water_check21.findAll({
     order: [['updatedAt', 'DESC']]
   });
   let inven_salt = await Inven_salt.findAll({
@@ -381,7 +381,9 @@ app.post('/data', async (req, res) => {
   let inven_avita = await Inven_avita.findAll({
     order: [['updatedAt', 'DESC']]
   });
-  let transfer = await Transfer.findAll();
+  let transfer = await Transfer.findAll({
+    order: [['updatedAt', 'DESC']]
+  });
   let center200_middle = await Center200_middle.findAll({
     order: [['updatedAt', 'DESC']]
   });
@@ -432,44 +434,526 @@ app.post('/data', async (req, res) => {
 
 //boiler1 업데이트
 app.post('/boiler1', async (req,res)=>{
-  let values = req.body.today;
+  let date = new Date();
+  let today = date.getDate();
+  let use = req.body.today_use;
+  let time = req.body.today_time;
   let datas = await Boiler.findOne({
     order: [['updatedAt', 'DESC']]
   })
   let data = JSON.parse(JSON.stringify(datas));
-  console.log("로그", values, data)
-  let last_month = data.last_month;
-  let yesterday = data.yesterday;
-  let user = await Boiler.create({
-    last_month: last_month,
-    yesterday: yesterday,
-    today: values,
-    value: values - yesterday,
-    value_month: values - last_month,
-    state: '양호'
+  // console.log("로그", values, data)
+  if(today==1){
+    let last_month_use = data.today_use; 
+    let yesterday_use = data.today_use;
+    let last_month_time = data.today_time;
+    let yesterday_time = data.today_time;
+    let user = await Boiler.create({
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: use,
+    value_use: use - yesterday_use,
+    value_month_use: use - last_month_use,
+    last_month_time: last_month_time,
+    yesterday_time: yesterday_time,
+    today_time: time,
+    value_time: time - yesterday_time,
+    value_month_time: time - last_month_time,
   })
-  res.redirect('/checklist');
+   
+  }else {
+    let last_month_use = data.last_month_use; 
+    let yesterday_use = data.today_use;
+    let last_month_time = data.last_month_time;
+    let yesterday_time = data.today_time;
+    let user = await Boiler.create({
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: use,
+    value_use: use - yesterday_use,
+    value_month_use: use - last_month_use,
+    last_month_time: last_month_time,
+    yesterday_time: yesterday_time,
+    today_time: time,
+    value_time: time - yesterday_time,
+    value_month_time: time - last_month_time,
+  })}
+  res.redirect('/check');
 })
 
 //boiler2 업데이트
 app.post('/boiler2', async (req,res)=>{
-  let values = req.body.today;
+  let date = new Date();
+  let today = date.getDate();
+  let use = req.body.today_use;
+  let time = req.body.today_time;
   let datas = await Boiler2.findOne({
     order: [['updatedAt', 'DESC']]
   })
   let data = JSON.parse(JSON.stringify(datas));
-  console.log("로그", values, data)
-  let last_month = data.last_month;
-  let yesterday = data.yesterday;
-  let user = await Boiler2.create({
-    last_month: last_month,
-    yesterday: yesterday + values,
-    today: values,
-    value: values - yesterday,
-    value_month: values - last_month,
-    state: '양호'
+  // console.log("로그", values, data)
+  if(today==1){
+    let last_month_use = data.today_use; 
+    let yesterday_use = data.today_use;
+    let last_month_time = data.today_time;
+    let yesterday_time = data.today_time;
+    let user = await Boiler2.create({
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: use,
+    value_use: use - yesterday_use,
+    value_month_use: use - last_month_use,
+    last_month_time: last_month_time,
+    yesterday_time: yesterday_time,
+    today_time: time,
+    value_time: time - yesterday_time,
+    value_month_time: time - last_month_time,
   })
-  res.redirect('/checklist');
+   
+  }else {
+    let last_month_use = data.last_month_use; 
+    let yesterday_use = data.today_use;
+    let last_month_time = data.last_month_time;
+    let yesterday_time = data.today_time;
+    let user = await Boiler2.create({
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: use,
+    value_use: use - yesterday_use,
+    value_month_use: use - last_month_use,
+    last_month_time: last_month_time,
+    yesterday_time: yesterday_time,
+    today_time: time,
+    value_time: time - yesterday_time,
+    value_month_time: time - last_month_time,
+  })}
+  res.redirect('/check');
+})
+
+//aircon 업데이트
+app.post('/aircon', async (req,res)=>{
+  let date = new Date();
+  let today = date.getDate();
+  let use = req.body.today_use;
+  let time = req.body.today_time;
+  let datas = await Aircon.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  // console.log("로그", values, data)
+  if(today==1){
+    let last_month_use = data.today_use; 
+    let yesterday_use = data.today_use;
+    let last_month_time = data.today_time;
+    let yesterday_time = data.today_time;
+    let user = await Aircon.create({
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: use,
+    value_use: use - yesterday_use,
+    value_month_use: use - last_month_use,
+    last_month_time: last_month_time,
+    yesterday_time: yesterday_time,
+    today_time: time,
+    value_time: time - yesterday_time,
+    value_month_time: time - last_month_time,
+  })
+   
+  }else {
+    let last_month_use = data.last_month_use; 
+    let yesterday_use = data.today_use;
+    let last_month_time = data.last_month_time;
+    let yesterday_time = data.today_time;
+    let user = await Aircon.create({
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: use,
+    value_use: use - yesterday_use,
+    value_month_use: use - last_month_use,
+    last_month_time: last_month_time,
+    yesterday_time: yesterday_time,
+    today_time: time,
+    value_time: time - yesterday_time,
+    value_month_time: time - last_month_time,
+  })}
+  res.redirect('/check');
+})
+
+//water 업데이트
+app.post('/water', async (req,res)=>{
+  let date = new Date();
+  let today = date.getDate();
+  let use = req.body.today_use;
+  let datas = await Water.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  // console.log("로그", values, data)
+  if(today==1){
+    let last_month_use = data.today_use; 
+    let yesterday_use = data.today_use;
+    let user = await Water.create({
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: use,
+    value_use: use - yesterday_use,
+    value_month_use: use - last_month_use,
+  })
+   
+  }else {
+    let last_month_use = data.last_month_use; 
+    let yesterday_use = data.today_use;
+    let user = await Water.create({
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: use,
+    value_use: use - yesterday_use,
+    value_month_use: use - last_month_use,
+  })}
+  res.redirect('/check');
+})
+
+//pump 업데이트
+app.post('/pump', async (req,res)=>{
+  let date = new Date();
+  let today = date.getDate();
+  let datas = await Pump.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  // console.log("로그", values, data)
+  if(today==1){
+    let last_month_use = data.today_use; 
+    let yesterday_use = data.today_use;
+    let user = await Pump.create({
+    temp_input : req.body.temp_input,
+    temp_output : req.body.temp_output,
+    temp1_input : req.body.temp1_input,
+    temp1_output : req.body.temp1_output,
+    temp2_input : req.body.temp2_input,
+    temp2_output : req.body.temp2_output,
+    press1_input : req.body.press1_input,
+    press1_output : req.body.press1_output,
+    press2_input : req.body.press2_input,
+    press2_output : req.body.press2_output,
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: req.body.today_use,
+    value_use: req.body.today_use - yesterday_use,
+    value_month_use: req.body.today_use - last_month_use,
+    amp : req.body.amp
+  })
+   
+  }else {
+    let last_month_use = data.last_month_use; 
+    let yesterday_use = data.today_use;
+    let user = await Pump.create({
+    temp_input : req.body.temp_input,
+    temp_output : req.body.temp_output,
+    temp1_input : req.body.temp1_input,
+    temp1_output : req.body.temp1_output,
+    temp2_input : req.body.temp2_input,
+    temp2_output : req.body.temp2_output,
+    press1_input : req.body.press1_input,
+    press1_output : req.body.press1_output,
+    press2_input : req.body.press2_input,
+    press2_output : req.body.press2_output,
+    last_month_use: last_month_use,
+    yesterday_use: yesterday_use,
+    today_use: req.body.today_use,
+    value_use: req.body.today_use - yesterday_use,
+    value_month_use: req.body.today_use - last_month_use,
+    amp : req.body.amp
+  })
+   }
+  res.redirect('/check');
+})
+
+//수영장 업데이트
+app.post('/pool', async (req,res)=>{
+  let datas = await Pool.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  // console.log("로그", values, data)
+    let user = await Pool.create({
+    voltage: req.body.voltage,
+    ampere : req.body.ampere,
+    temperature : req.body.temperature,
+    value_use : 0,
+    etc : ""
+
+  })
+  res.redirect('/check');
+})
+
+//수질검사 업데이트
+app.post('/water_check', async (req,res)=>{
+  console.log('asdf',req.body.time)
+  
+  if(req.body.time == 5) {
+    let user = await Water_check5.create({
+      cl_value : req.body.cl_value,
+      ph_value : req.body.ph_value,
+      blur_value : req.body.blur_value,
+      temp_man_pool : req.body.temp_man_pool,
+      temp_baby_pool : req.body.temp_baby_pool,
+      temp_pool : req.body.temp_pool,
+      etc : ""
+
+      
+    })
+    
+    }else if(req.body.time == 9) {
+      let user = await Water_check9.create({
+        cl_value : req.body.cl_value,
+        ph_value : req.body.ph_value,
+        blur_value : req.body.blur_value,
+        temp_man_pool : req.body.temp_man_pool,
+        temp_baby_pool : req.body.temp_baby_pool,
+        temp_pool : req.body.temp_pool,
+        etc : ""
+      })
+      
+      }else if(req.body.time == 13) {
+        let user = await Water_check13.create({
+          cl_value : req.body.cl_value,
+          ph_value : req.body.ph_value,
+          blur_value : req.body.blur_value,
+          temp_man_pool : req.body.temp_man_pool,
+          temp_baby_pool : req.body.temp_baby_pool,
+          temp_pool : req.body.temp_pool,
+          etc : ""
+        })
+        
+        }else if(req.body.time == 17) {
+          let user = await Water_check17.create({
+            cl_value : req.body.cl_value,
+            ph_value : req.body.ph_value,
+            blur_value : req.body.blur_value,
+            temp_man_pool : req.body.temp_man_pool,
+            temp_baby_pool : req.body.temp_baby_pool,
+            temp_pool : req.body.temp_pool,
+            etc : ""
+          })
+          
+          }else {
+            let user = await Water_check21.create({
+              cl_value : req.body.cl_value,
+              ph_value : req.body.ph_value,
+              blur_value : req.body.blur_value,
+              temp_man_pool : req.body.temp_man_pool,
+              temp_baby_pool : req.body.temp_baby_pool,
+              temp_pool : req.body.temp_pool,
+              etc : ""
+            })
+        
+          }
+          res.redirect('/check');
+  
+})
+
+//재고현황 소금 업데이트
+app.post('/inven_salt', async (req,res)=>{
+  let datas = await Inven_salt.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  // console.log("로그", values, data)
+  let user = await Inven_salt.create({
+    input : Number(req.body.input),
+    output : Number(req.body.output),
+    lefts : data.lefts + Number(req.body.input) - Number(req.body.output),
+    use_value : data.use_value + Number(req.body.output),
+    etc : ""
+ })  
+  res.redirect('/check');
+})
+
+//응집제 소금 업데이트
+app.post('/inven_ueng', async (req,res)=>{
+  let datas = await Inven_ueng.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  // console.log("로그", values, data)
+  let user = await Inven_ueng.create({
+    input : Number(req.body.input),
+    output : Number(req.body.output),
+    lefts : data.lefts + Number(req.body.input) - Number(req.body.output),
+    use_value : data.use_value + Number(req.body.output),
+    etc : ""
+ })  
+  res.redirect('/check');
+})
+
+//ph조절제 업데이트
+app.post('/inven_ph', async (req,res)=>{
+  let datas = await Inven_ph.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  // console.log("로그", values, data)
+  let user = await Inven_ph.create({
+    input : Number(req.body.input),
+    output : Number(req.body.output),
+    lefts : data.lefts + Number(req.body.input) - Number(req.body.output),
+    use_value : data.use_value + Number(req.body.output),
+    etc : ""
+ })  
+  res.redirect('/check');
+})
+
+//아비타 업데이트
+app.post('/inven_avita', async (req,res)=>{
+  let datas = await Inven_avita.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  // console.log("로그", values, data)
+  let user = await Inven_avita.create({
+   input : Number(req.body.input),
+   output : Number(req.body.output),
+   lefts : data.lefts + Number(req.body.input) - Number(req.body.output),
+   use_value : data.use_value + Number(req.body.output),
+   etc : ""
+ })  
+  res.redirect('/check');
+})
+
+//변압기 업데이트
+app.post('/transfer', async (req,res)=>{
+  let datas = await Transfer.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data = JSON.parse(JSON.stringify(datas));
+  console.log("로그", req.body.temp, req.body.time, data)
+  if(req.body.time == 9) {
+    let user = await Transfer.create({
+      temp09 : req.body.temp,
+      temp17 : data.temp17,
+      temp21 : data.temp21
+    }) 
+  }else if(req.body.time == 17) {
+    let user = await Transfer.create({
+      temp09 : data.temp09,
+      temp17 : req.body.temp,
+      temp21 : data.temp21
+    }) 
+  }else {
+    let user = await Transfer.create({
+      temp09 : data.temp09,
+      temp17 : data.temp17,
+      temp21 : req.body.temp
+  })
+  }
+  res.redirect('/check');
+})
+
+//센터200배
+app.post('/center200', async (req,res)=>{
+  let date = new Date();
+  let today = date.getDate();
+  let datas_middle = await Center200_middle.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let datas_max = await Center200_max.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let datas_low = await Center200_low.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data_middle = JSON.parse(JSON.stringify(datas_middle));
+  let data_max = JSON.parse(JSON.stringify(datas_max));
+  let data_low = JSON.parse(JSON.stringify(datas_low));
+  // console.log("로그", values, data)
+  if(today == 1) {
+    let user_middle = await Center200_middle.create({
+      last_month_use : data_middle.today_use,
+      yesterday_use : data_middle.today_use,
+      today_use : req.body.today_use_middle
+    })
+    let user_max = await Center200_max.create({
+      last_month_use : data_max.today_use,
+      yesterday_use : data_max.today_use,
+      today_use : req.body.today_use_max
+    })
+    let user_low = await Center200_low.create({
+      last_month_use : data_low.today_use,
+      yesterday_use : data_low.today_use,
+      today_use : req.body.today_use_low
+    })
+    }else {
+      let user_middle = await Center200_middle.create({
+        last_month_use : data_middle.last_month_use,
+        yesterday_use : data_middle.today_use,
+        today_use : req.body.today_use_middle
+      })
+      let user_max = await Center200_max.create({
+        last_month_use : data_max.last_month_use,
+        yesterday_use : data_max.today_use,
+        today_use : req.body.today_use_max
+      })
+      let user_low = await Center200_low.create({
+        last_month_use : data_low.last_month_use,
+        yesterday_use : data_low.today_use,
+        today_use : req.body.today_use_low
+      }) 
+      }  
+  res.redirect('/check');
+})
+
+//센터 정화조
+app.post('/center', async (req,res)=>{
+  let date = new Date();
+  let today = date.getDate();
+  let datas_middle = await Center_middle.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let datas_max = await Center_max.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let datas_low = await Center_low.findOne({
+    order: [['updatedAt', 'DESC']]
+  })
+  let data_middle = JSON.parse(JSON.stringify(datas_middle));
+  let data_max = JSON.parse(JSON.stringify(datas_max));
+  let data_low = JSON.parse(JSON.stringify(datas_low));
+  // console.log("로그", values, data)
+  if(today == 1) {
+    let user_middle = await Center_middle.create({
+      last_month_use : data_middle.today_use,
+      yesterday_use : data_middle.today_use,
+      today_use : req.body.today_use_middle
+    })
+    let user_max = await Center_max.create({
+      last_month_use : data_max.today_use,
+      yesterday_use : data_max.today_use,
+      today_use : req.body.today_use_max
+    })
+    let user_low = await Center_low.create({
+      last_month_use : data_low.today_use,
+      yesterday_use : data_low.today_use,
+      today_use : req.body.today_use_low
+    })
+    }else {
+      let user_middle = await Center_middle.create({
+        last_month_use : data_middle.last_month_use,
+        yesterday_use : data_middle.today_use,
+        today_use : req.body.today_use_middle
+      })
+      let user_max = await Center_max.create({
+        last_month_use : data_max.last_month_use,
+        yesterday_use : data_max.today_use,
+        today_use : req.body.today_use_max
+      })
+      let user_low = await Center_low.create({
+        last_month_use : data_low.last_month_use,
+        yesterday_use : data_low.today_use,
+        today_use : req.body.today_use_low
+      }) 
+      }  
+  res.redirect('/check');
 })
 
 //업무보고페이지접속
