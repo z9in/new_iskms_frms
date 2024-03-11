@@ -49,8 +49,9 @@
           // outputMessage.hidden = true;
           // outputData.parentElement.hidden = false;
           outputMessage.innerText = code.data;
-          video.srcObject.getTracks().stop()
-          video.srcObject = null
+          video.srcObject.getTracks().stop();
+          video.srcObject = null;
+          context.clearRect(0, 0, canvas.width, canvas.height);
           
         } else {
           // outputMessage.hidden = false;
