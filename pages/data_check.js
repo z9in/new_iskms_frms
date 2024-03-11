@@ -14,16 +14,18 @@ function drawLine(begin, end, color) {
 }
 
 // Use facingMode: environment to attemt to get the front camera on phones
-navigator.mediaDevices.getUserMedia({ video: { 
-  facingMode: "environment",
-  width: {ideal: 300},
-  height: {ideal:400}
-} }).then(function(stream) {
-  video.srcObject = stream;
-  video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-  video.play();
-  requestAnimationFrame(tick);
-});
+check_btn.addEventListener('click', ()=>{
+  navigator.mediaDevices.getUserMedia({ video: { 
+    facingMode: "environment",
+    width: {ideal: 100},
+    height: {ideal:200}
+  } }).then(function(stream) {
+    video.srcObject = stream;
+    video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+    video.play();
+    requestAnimationFrame(tick);
+  });
+})
 
 function tick() {
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
@@ -41,15 +43,11 @@ function tick() {
       drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-     
       result_el.innerHTML = code;
 
-      
-
-    } else {
-      outputMessage.hidden = false;
-      outputData.parentElement.hidden = true;
+   } else {
+      requestAnimationFrame(tick);
     }
   }
-  requestAnimationFrame(tick);
+  
 }
