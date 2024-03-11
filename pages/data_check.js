@@ -15,7 +15,7 @@ function drawLine(begin, end, color) {
 }
 
 // Use facingMode: environment to attemt to get the front camera on phones
-check_btn.addEventListener('click', ()=>{
+// check_btn.addEventListener('click', ()=>{
   navigator.mediaDevices.getUserMedia({ video: { 
     facingMode: "environment",
     width: {ideal: 300},
@@ -26,7 +26,7 @@ check_btn.addEventListener('click', ()=>{
     video.play();
     requestAnimationFrame(tick);
   });
-})
+// })
 
 function tick() {
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
@@ -45,7 +45,7 @@ function tick() {
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
       
-      boiler1[code.data].display = 'flex';
+      boiler1[code.data].style.display = 'flex';
       
 
    } else {
