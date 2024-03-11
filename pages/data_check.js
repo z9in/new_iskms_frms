@@ -5,7 +5,7 @@
     var outputContainer = document.getElementById("output");
     var outputMessage = document.getElementById("outputMessage");
     var outputData = document.getElementById("outputData");
-    
+    let check_btn = document.getElementById('check_btn');
 
     function drawLine(begin, end, color) {
       canvas.beginPath();
@@ -17,14 +17,14 @@
     }
 
     // Use facingMode: environment to attemt to get the front camera on phones
-    
+    check_btn.addEventListener('click',()=>{
       navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
         video.srcObject = stream;
         video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
         video.play();
         requestAnimationFrame(tick);
       });
-    
+    })
     
 
     function tick() {

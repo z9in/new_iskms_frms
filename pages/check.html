@@ -79,9 +79,12 @@
                     <button id="check_btn">점검하기</button>
                 </div>
                 <canvas id="canvas" hidden></canvas>
-              
+                <div id="output" hidden>
+                    <div id="outputMessage">No QR code detected.</div>
+                    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+                  </div>
                 
-                <div id="output">
+                <!-- <div id="output">
                     <form action="/boiler" method="post">
                         <h1>보일러 점검</h1>
                         <label for="use1"><p>1호기 사용량</p>
@@ -91,7 +94,7 @@
                             <input type="number" name="use2" id="use2" value="0" placeholder="2호기 사용량을 입력해 주세요.">
                         </label>
                     </form>
-                 </div>
+                 </div> -->
                 
             </div>
             <!-- content -->
