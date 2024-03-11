@@ -51,7 +51,7 @@
           outputMessage.innerText = code.data;
           video.srcObject.getTracks().stop();
           video.srcObject = null;
-          context.clearRect(0, 0, canvas.width, canvas.height);
+          canvas.clearRect(0, 0, canvas.width, canvas.height);
           
         } else {
           // outputMessage.hidden = false;
