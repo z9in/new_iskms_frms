@@ -4,7 +4,7 @@ let mon_el = document.querySelectorAll('.monthy');
 let day_el = document.querySelectorAll('.day');
 let hour_el = document.querySelectorAll('.hour');
 let minit_el = document.querySelectorAll('.minit');
-
+console.log(year_el)
 setInterval(()=>{
     let dates = new Date()
     year_el[0].innerHTML = dates.getFullYear()+"년 ";
