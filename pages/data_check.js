@@ -1,4 +1,4 @@
-    var video = document.getElementById('qr');
+    var video = document.getElementById('qr-video');
     // var canvasElement = document.getElementById("canvas");
     // var canvas = canvasElement.getContext("2d");
     // var loadingMessage = document.getElementById("loadingMessage");
