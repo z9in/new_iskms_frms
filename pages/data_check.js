@@ -28,7 +28,7 @@
     
 
     function tick() {
-      loadingMessage.innerText = "⌛ Loading video..."
+      // loadingMessage.innerText = "⌛ Loading video..."
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
         loadingMessage.hidden = true;
         canvasElement.hidden = false;
@@ -52,6 +52,7 @@
           video.srcObject.getTracks().stop();
           video.srcObject = null;
           canvas.clearRect(0, 0, canvas.width, canvas.height);
+          video.disply='none'
           
         } else {
           // outputMessage.hidden = false;
