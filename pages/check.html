@@ -75,17 +75,9 @@
             </div>
             <!-- title -->
             <div class="content">
-                <div id="loadingMessage">
-                    <button id="check_btn">점검하기</button>
-                    <video id="scan" width="300" height="400"></video>
-                </div>
-                <canvas id="canvas" hidden></canvas>
-                <div id="output">
-
-                    <div id="outputMessage">No QR code detected.</div>
-                    <div hidden><b>Data:</b> <span id="outputData"></span></div>
-                  </div>
-                
+                <video id="qr-video"></video>
+                <button id="check_btn">점검하기</button>
+                <p id="result">값나오는 곳</p>
                 <!-- <div id="output">
                     <form action="/boiler" method="post">
                         <h1>보일러 점검</h1>
