@@ -49,7 +49,8 @@
           // outputMessage.hidden = true;
           // outputData.parentElement.hidden = false;
           outputMessage.innerText = code.data;
-          video.display = 'none'
+          video.srcObject.getTracks().stop()
+          video.srcObject = null
           
         } else {
           // outputMessage.hidden = false;
