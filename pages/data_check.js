@@ -45,7 +45,7 @@ function tick() {
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
       
-      boiler1[code.data].hidden = false;
+      boiler1[code.data-1].hidden = false;
       
 
    } else {
