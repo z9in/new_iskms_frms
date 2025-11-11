@@ -78,6 +78,7 @@ logout_el[1].addEventListener('click', () => {
  })
 
 
+let stream; // 스트림을 전역적으로 관리하기 위한 변수
 var video = document.getElementById("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
@@ -108,7 +109,8 @@ check_btn.addEventListener('click', ()=>{
     width: {ideal: 300},
     height: {ideal:300}
   } }).then(function(stream) {
-    video.srcObject = stream;
+    window.stream = stream; // 스트림을 window 객체에 할당하여 tick 함수에서 접근 가능하도록 함
+    video.srcObject = window.stream;
     video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
     video.play().then(() => {
       loadingMessage.hidden = true;
@@ -135,8 +137,14 @@ function tick() {
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
       
+      // QR 코드 인식 성공 시 처리
       boiler1[code.data].style.display = 'flex';
-      
+      video.hidden = true; // 비디오 숨기기
+      if (window.stream) {
+        window.stream.getTracks().forEach(track => track.stop()); // 카메라 스트림 중지
+      }
+      loadingMessage.remove(); // "카메라 준비 중..." 메시지 제거
+      return; // tick 함수 종료
 
    } else {
       
