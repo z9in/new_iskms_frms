@@ -78,12 +78,16 @@ logout_el[1].addEventListener('click', () => {
  })
 
 
-var video = document.createElement("video");
+let stream; // 스트림을 전역적으로 관리하기 위한 변수
+var video = document.getElementById("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 let check_btn = document.getElementById('check_btn');
 let result_el = document.getElementById('result');
 let boiler1 = document.querySelectorAll('.check_form');
+
+let loadingMessage = document.createElement("p");
+loadingMessage.innerText = "카메라 준비 중...";
 
 function drawLine(begin, end, color) {
   canvas.beginPath();
@@ -96,21 +100,29 @@ function drawLine(begin, end, color) {
 
 // Use facingMode: environment to attemt to get the front camera on phones
 check_btn.addEventListener('click', ()=>{
+  check_btn.hidden = true;
+  video.hidden = false;
+  check_btn.parentNode.insertBefore(loadingMessage, check_btn);
+
   navigator.mediaDevices.getUserMedia({ video: { 
     facingMode: "environment",
     width: {ideal: 300},
     height: {ideal:300}
   } }).then(function(stream) {
-    video.srcObject = stream;
+    window.stream = stream; // 스트림을 window 객체에 할당하여 tick 함수에서 접근 가능하도록 함
+    video.srcObject = window.stream;
     video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-    video.play();
-    requestAnimationFrame(tick);
+    video.play().then(() => {
+      loadingMessage.hidden = true;
+      requestAnimationFrame(tick);
+    });
   });
 })
 
 function tick() {
+  loadingMessage.hidden = true;
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
-    canvasElement.hidden = false;
+    // canvasElement.hidden = false; // 이 줄을 주석 처리하거나 삭제하여 canvas가 보이지 않도록 합니다.
 
     canvasElement.height = video.videoHeight;
     canvasElement.width = video.videoWidth;
@@ -125,12 +137,19 @@ function tick() {
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
       
+      // QR 코드 인식 성공 시 처리
       boiler1[code.data].style.display = 'flex';
-      
+      video.hidden = true; // 비디오 숨기기
+      if (window.stream) {
+        window.stream.getTracks().forEach(track => track.stop()); // 카메라 스트림 중지
+      }
+      loadingMessage.remove(); // "카메라 준비 중..." 메시지 제거
+      return; // tick 함수 종료
 
    } else {
-      requestAnimationFrame(tick);
+      
     }
   }
+  requestAnimationFrame(tick);
   
 }
