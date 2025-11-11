@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./index.css"> -->
+    <script src="./jsQR.js"></script>
+    <link rel="stylesheet" type="text/css" href="/pages/dashboard.css" media="screen and (min-width:900px)">
+    <link rel="stylesheet" type="text/css" href="/pages/check _mobile copy.css" media="screen and (max-width:899px)">
+    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1 class="logo">
+                <a href="/dashboard"><img src="/pages/images/logo 1.png" alt="logo"></a>
+            </h1>
+            <nav>
+                <ul class="depth1">
+                    <li class="menu_box">
+                        <h1 class="menu1">
+                            <img src="/pages/images/mingcute_close-fill.svg" alt="menu">
+                        </h1>
+                    </li>
+                    <li>
+                        <a href="/report">시설관리 종합일지</a>
+                    </li>
+                    <li>
+                        <a href="/check">점검하기</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#">발전기 운전 일지</a>
+                    </li>
+                    <li>
+                        <a href="#">에너지 사용량</a>
+                    </li>
+                    <li>
+                        <a href="#">수  온</a>
+                    </li>
+                    <li>
+                        <a href="#">재고관리</a>
+                    </li> -->
+                    <li class="logout_li">
+                        <p class="logout">로그아웃</p>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user_box">
+                <h5>시립마포청소년센터</h5>
+                <h5 class="userName">user</h5> 
+            </div>
+            <h1 class="logout">
+                <img src="/pages/images/ic_round-logout.svg" alt="logout">
+            </h1>
+            <h1 class="menu">
+                <img src="/pages/images/material-symbols_menu.svg" alt="menu">
+            </h1>
+       </header>
+       <main>
+            <div class="title">
+                <div class="date">
+                    <p>
+                        <span class="year">2024년</span>
+                        <span class="monthy">2월</span>
+                        <span class="day">3일</span>
+                        <span class="hour">21</span>
+                        <span class="minit" >57</span>
+                    </p>
+                </div>
+                <!-- date -->
+                <div class="title_name">
+                    <h1>시립마포청소년센터 시설점검 현황</h1>
+                </div>
+            </div>
+            <!-- title -->
+            <div class="content">
+                <div class="camera_box">
+                    <video id="video" hidden playsinline></video>
+                    <!-- <video id="camera"></video> -->
+                    <canvas id="canvas" hidden></canvas>
+                    <button id="check_btn">점검하기</button>
+                </div>
+                <div id="output">
+                    <form action="/boiler1" method="post" class="check_form">
+                        <h1>보일러1 점검</h1>
+                        <label for="today_use"><p>사용량 :</p>
+                            <input type="number" name="today_use" id="boiler1_use" value="0">
+                        </label>
+                        <label for="today_time"><p>가동시간 :</p>
+                            <input type="number" name="today_time" id="boiler1_time" value="0" placeholder="2호기 사용량을 입력해 주세요.">
+                        </label>
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 보일러1 -->
+                    <form action="/boiler2" method="post" class="check_form">
+                        <h1>보일러2 점검</h1>
+                        <label for="today_use"><p>사용량 :</p>
+                            <input type="number" name="today_use" id="boiler2_use" value="0">
+                        </label>
+                        <label for="today_time"><p>가동시간 :</p>
+                            <input type="number" name="today_time" id="boiler2_time" value="0" placeholder="2호기 사용량을 입력해 주세요.">
+                        </label>
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 보일러2 -->
+                    <form action="/aircon" method="post" class="check_form">
+                        <h1>냉ㆍ온수기 점검</h1>
+                        <label for="today_use"><p>사용량 :</p>
+                            <input type="number" name="today_use" id="aircon_use" value="0">
+                        </label>
+                        <label for="today_time"><p>가동시간 :</p>
+                            <input type="number" name="today_time" id="aircon_time" value="0" placeholder="2호기 사용량을 입력해 주세요.">
+                        </label>
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 냉온수기 -->
+                    <form action="/water" method="post" class="check_form">
+                        <h1>급수 유량계</h1>
+                        <label for="today_use"><p>금일 지침 :</p>
+                            <input type="number" name="today_use" id="water_use" value="0">
+                        </label>
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 급수 유량계 -->
+                    <form action="/pump" method="post" class="check_form">
+                        <h1>공기열 히트펌프</h1>
+                        <label for="temp_input"><p>입구 온도 :</p>
+                            <input type="number" name="temp_input" id="temp_input_pump" value="0">
+                        </label>
+                        <label for="temp_output"><p>출구 온도 :</p>
+                            <input type="number" name="temp_output" id="temp_output_pump" value="0">
+                        </label>
+                        <label for="temp1_input"><p>1흡입 :</p>
+                            <input type="number" name="temp1_input" id="temp1_input_pump" value="0">
+                        </label>
+                        <label for="temp1_output"><p>1토출 :</p>
+                            <input type="number" name="temp1_output" id="temp1_output_pump" value="0">
+                        </label>
+                        <label for="temp2_input"><p>2흡입 :</p>
+                            <input type="number" name="temp2_input" id="temp2_input_pump" value="0">
+                        </label>
+                        <label for="temp2_output"><p>2토출 :</p>
+                            <input type="number" name="temp2_output" id="temp2_output_pump" value="0">
+                        </label>
+                        <label for="press1_input"><p>1고압 :</p>
+                            <input type="number" name="press1_input" id="press1_input_pump" value="0">
+                        </label>
+                        <label for="press1_output"><p>1저압 :</p>
+                            <input type="number" name="press1_output" id="press1_output_pump" value="0">
+                        </label>
+                        <label for="press2_input"><p>2고압 :</p>
+                            <input type="number" name="press2_input" id="press2_input_pump" value="0">
+                        </label>
+                        <label for="press2_output"><p>2저압 :</p>
+                            <input type="number" name="press2_output" id="press2_output_pump" value="0">
+                        </label>
+                        <label for="today_use"><p>금일 지침 :</p>
+                            <input type="number" name="today_use" id="today_use_pump" value="0">
+                        </label>
+                        <label for="amp"><p>소비전류 :</p>
+                            <input type="number" name="amp" id="amp_pump" value="0">
+                        </label>
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 공기열 히트펌프 -->
+                    <form action="/pool" method="post" class="check_form">
+                        <h1>정류기 현황</h1>
+                        <label for="voltage"><p>VOLTAGE :</p>
+                            <input type="number" name="voltage" id="voltage_pool" value="0">
+                        </label>
+                        <label for="ampere"><p>AMPERE :</p>
+                            <input type="number" name="ampere" id="ampere_pool" value="0">
+                        </label>
+                        <label for="temperature"><p>TEMPERATURE :</p>
+                            <input type="number" name="temperature" id="temper_pool" value="0">
+                        </label>
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 정류기 현황 -->
+                    <form action="/water_check" method="post" class="check_form">
+                        <h1>수질점검결과</h1>
+                        <label for="cl_value"><p>잔류염소 :</p>
+                            <input type="number" name="cl_value" id="cl_value" value="0">
+                        </label>
+                        <label for="ph_value"><p>PH :</p>
+                            <input type="number" name="ph_value" id="ph_value" value="0">
+                        </label>
+                        <label for="blur_value"><p>탁도 :</p>
+                            <input type="number" name="blur_value" id="blur_value" value="0">
+                        </label>
+                        <label for="temp_man_pool"><p>성인풀수온 :</p>
+                            <input type="number" name="temp_man_pool" id="temp_man_pool" value="0">
+                        </label>
+                        <label for="temp_baby_pool"><p>유아풀수온 :</p>
+                            <input type="number" name="temp_baby_pool" id="temp_baby_pool" value="0">
+                        </label>
+                        <label for="temp_pool"><p>실내온도 :</p>
+                            <input type="number" name="temp_pool" id="temp_pool" value="0">
+                        </label>
+                        <label for="time"><p>시간 :</p>
+                            <select name="time" id="time_water_check">
+                                <option value="">점검시간을 시간을 선택하세요.</option>
+                                <option value="5">5시</option>
+                                <option value="9">9시</option>
+                                <option value="13">13시</option>
+                                <option value="17">17시</option>
+                                <option value="21">21시</option>
+                            </select>
+                        </label>                       
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 수질 점검 결과 -->
+                    <form action="/inven_salt" method="post" class="check_form">
+                        <h1>재고 현황(소금)</h1>
+                        <label for="input"><p>입고량 :</p>
+                            <input type="number" name="input" id="input_salt" value="0">
+                        </label>
+                        <label for="output"><p>사용량 :</p>
+                            <input type="number" name="output" id="output_salt" value="0">
+                        </label>                                     
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 재고 현황(소금) -->
+                    <form action="/inven_ueng" method="post" class="check_form">
+                        <h1>재고 현황(응집제)</h1>
+                        <label for="input"><p>입고량 :</p>
+                            <input type="number" name="input" id="input_ueng" value="0">
+                        </label>
+                        <label for="output"><p>사용량 :</p>
+                            <input type="number" name="output" id="output_ueng" value="0">
+                        </label>                                     
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 재고 현황(응집제) -->
+                    <form action="/inven_ph" method="post" class="check_form">
+                        <h1>재고 현황(PH조절제)</h1>
+                        <label for="input"><p>입고량 :</p>
+                            <input type="number" name="input" id="input_ph" value="0">
+                        </label>
+                        <label for="output"><p>사용량 :</p>
+                            <input type="number" name="output" id="output_ph" value="0">
+                        </label>                                     
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 재고 현황(PH조절제) -->
+                    <form action="/inven_avita" method="post" class="check_form">
+                        <h1>재고 현황(아비타)</h1>
+                        <label for="input"><p>입고량 :</p>
+                            <input type="number" name="input" id="input_avita" value="0">
+                        </label>
+                        <label for="output"><p>사용량 :</p>
+                            <input type="number" name="output" id="output_avita" value="0">
+                        </label>                                     
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 재고 현황(아비타) -->
+                    <form action="/transfer" method="post" class="check_form">
+                        <h1>변압기</h1>
+                        <label for="temp"><p>온도 :</p>
+                            <input type="number" name="temp" id="temp_transfer" value="0">
+                        </label>
+                        <label for="time"><p>시간 :</p>
+                            <select name="time" id="time_water_check">
+                                <option value="">점검시간을 시간을 선택하세요.</option>
+                                <option value="9">9시</option>
+                                <option value="17">17시</option>
+                                <option value="21">21시</option>
+                            </select>
+                        </label>                                          
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 변압기 -->
+                    <form action="/center200" method="post" class="check_form">
+                        <h1>센터200배</h1>
+                        <label for="today_use_middle"><p>중간 :</p>
+                            <input type="number" name="today_use_middle" id="today_use_middle200" value="0">
+                        </label>
+                        <label for="today_use_max"><p>최대 :</p>
+                            <input type="number" name="today_use_max" id="today_use_max200" value="0">
+                        </label>                                     
+                        <label for="today_use_low"><p>경부하 :</p>
+                            <input type="number" name="today_use_low" id="today_use_low200" value="0">
+                        </label>                                     
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 센터200배 -->
+                    <form action="/center" method="post" class="check_form">
+                        <h1>센터정화조</h1>
+                        <label for="today_use_middle"><p>중간 :</p>
+                            <input type="number" name="today_use_middle" id="today_use_middle" value="0">
+                        </label>
+                        <label for="today_use_max"><p>최대 :</p>
+                            <input type="number" name="today_use_max" id="today_use_max" value="0">
+                        </label>                                     
+                        <label for="today_use_low"><p>경부하 :</p>
+                            <input type="number" name="today_use_low" id="today_use_low" value="0">
+                        </label>                                       
+                        <input class="submit_btn" type="submit" value="점검완료">
+                    </form>
+                    <!-- 센터정화조 -->
+                 </div>
+                
+            </div>
+            <!-- content -->
+       </main>
+    </div>
+</body>
+<!-- <script src="/pages/data.js"></script> -->
+<script src="/pages/data_check.js"></script>
+
+<!-- <script src="/pages/data_dashboard.js"></script> -->
+</html>
