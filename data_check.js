@@ -120,7 +120,7 @@ check_btn.addEventListener('click', ()=>{
 function tick() {
   loadingMessage.hidden = true;
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
-    canvasElement.hidden = false;
+    // canvasElement.hidden = false; // 이 줄을 주석 처리하거나 삭제하여 canvas가 보이지 않도록 합니다.
 
     canvasElement.height = video.videoHeight;
     canvasElement.width = video.videoWidth;
